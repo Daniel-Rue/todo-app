@@ -64,16 +64,20 @@ const App: React.FC = () => {
   return (
     <main className='App'>
       <h1>My Todos</h1>
-      <AddTodo saveTodo={handleSaveTodo} />
-      {todos.map((todo: ITodo) => (
-        <TodoItem
-          key={todo.id}
-          updateTodo={handleUpdateTodo}
-          deleteTodo={handleDeleteTodo}
-          revertTodo={handleRevertTodo}
-          todo={todo}
-        />
-      ))}
+      <div className='App-body'>
+        <AddTodo saveTodo={ handleSaveTodo } />
+        <div className='Todo-body'>
+          { todos.map((todo: ITodo) => (
+            <TodoItem
+              key={ todo.id }
+              updateTodo={ handleUpdateTodo }
+              deleteTodo={ handleDeleteTodo }
+              revertTodo={ handleRevertTodo }
+              todo={ todo }
+            />
+          )) }
+        </div>
+      </div>
     </main>
   )
 }
